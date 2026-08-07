@@ -407,6 +407,31 @@ body{
     transform:
     translateY(-2px);
 }   
+
+#bottomButtons{
+
+    display:flex;
+    gap:12px;
+
+    width:220px;
+    margin:18px auto 30px auto;
+
+}
+
+#bottomButtons .button{
+
+    flex:1;
+    min-width:0;
+
+}
+
+#creditButton{
+
+    background:rgba(255,255,255,0.45);
+    border:1px solid rgba(60,40,30,0.12);
+    color:#4b413c;
+
+}
     
 @media screen and (max-width:700px){
 
@@ -613,17 +638,29 @@ opacity:0.9;
 <div id="game"></div>
 
 <button
-    id="soundButton"
+    id="zukanButton"
     class="button"
-    onclick="toggleSound()">
-
-🔇 音 OFF
-
+    onclick="goToZukan()">
+📖 だし図鑑
 </button>
-    
-<button id="zukanButton" class="button" onclick="goToZukan()"> 
-📖 だし図鑑 
-</button>
+
+<div id="bottomButtons">
+
+    <button
+        id="soundButton"
+        class="button"
+        onclick="toggleSound()">
+        🔇 音 OFF
+    </button>
+
+    <button
+        id="creditButton"
+        class="button"
+        onclick="showCredit()">
+        © クレジット
+    </button>
+
+</div>
 
     
 <script>
