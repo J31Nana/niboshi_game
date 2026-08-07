@@ -366,6 +366,18 @@ body{
     box-shadow:
         0 0 12px rgba(216,180,91,0.45);
 }
+
+#soundButton{
+
+    background:rgba(255,255,255,0.45);
+    border:1px solid rgba(60,40,30,0.12);
+    color:#4b413c;
+    margin-top:25px;
+    padding:16px 24px;
+    font-size:15px;
+    min-width:180px;
+
+}
     
 #zukanButton{
 
@@ -386,7 +398,7 @@ body{
 
     min-width:220px;
 }
-
+    
 #zukanButton:hover{
 
     background:
@@ -600,6 +612,15 @@ opacity:0.9;
 
 <div id="game"></div>
 
+<button
+    id="soundButton"
+    class="button"
+    onclick="toggleSound()">
+
+🔇 音 OFF
+
+</button>
+    
 <button id="zukanButton" class="button" onclick="goToZukan()"> 
 📖 だし図鑑 
 </button>
@@ -612,6 +633,20 @@ const correctSound = new Audio("sounds/correct.mp3");
 const missSound = new Audio("sounds/miss.mp3");
 const clearSound = new Audio("sounds/clear.mp3");
 const rareSound = new Audio("sounds/rare.mp3");
+
+// 効果音設定（初期値はOFF）
+let soundEnabled = false;
+
+function playSound(sound){
+
+    if(!soundEnabled) return;
+
+    sound.pause();
+    sound.currentTime = 0;
+
+    sound.play().catch(() => {});
+
+}
 
 function playSound(sound){
 
@@ -1619,6 +1654,25 @@ function openLine(){
 
 }
 
+function toggleSound(){
+
+    soundEnabled = !soundEnabled;
+
+    const button =
+    document.getElementById("soundButton");
+
+    if(soundEnabled){
+
+        button.textContent = "🔊 音 ON";
+
+    }else{
+
+        button.textContent = "🔇 音 OFF";
+
+    }
+
+}
+    
 function shareResult(){
 
     const difficulty =
