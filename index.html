@@ -642,6 +642,15 @@ if(soundEnabled === null){
     soundEnabled = false;
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+
+    const button = document.getElementById("soundButton");
+
+    button.textContent =
+        soundEnabled ? "🔊 音 ON" : "🔇 音 OFF";
+
+});
+
 function playSound(sound){
 
     if(!soundEnabled) return;
