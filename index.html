@@ -635,7 +635,12 @@ const clearSound = new Audio("sounds/clear.mp3");
 const rareSound = new Audio("sounds/rare.mp3");
 
 // 効果音設定（初期値はOFF）
-let soundEnabled = false;
+let soundEnabled =
+JSON.parse(localStorage.getItem("soundEnabled"));
+
+if(soundEnabled === null){
+    soundEnabled = false;
+}
 
 function playSound(sound){
 
